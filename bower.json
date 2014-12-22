@@ -1,0 +1,9 @@
+{
+  "name": "newpaper2",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "photoswipe": "~4.0.1",
+    "modernizr": "~2.8.1"
+  }
+}
