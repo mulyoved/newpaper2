@@ -423,3 +423,46 @@ a {
   }
 }
 
+.image-gallery {
+
+  img {
+    margin: 8px;
+    width: 120px;
+    height: 90px;
+    border: 0;
+  }
+}
+
+.screenshot-gallery {
+  margin-top: 1.625em;
+
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    display: block;
+    float: left;
+    margin: 0 12px 12px 0;
+    width: 171px;
+    line-height: 0;
+  }
+}
+
+
+a.screenshot-gallery__img--main {
+  width: auto;
+  height: auto;
+}
+
+.screenshot-gallery figure {
+  display: none;
+}
+
+.gallery-large-image {
+  width: 354px; // (171) * 2px +12;
+  height: 282px; //135px * 2 + 12px;
+}
+
+.styleguide__editorial-header {
+  padding-bottom: 2.625em;
+  border-bottom: 1px solid #ccc;
+}

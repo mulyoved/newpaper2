@@ -1,11 +1,13 @@
 /* jshint node:true */
 'use strict';
 // generated on 2014-12-21 using generator-gulp-webapp 0.2.0
+var Q = require('q');
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 require('gulp-grunt')(gulp);
 var imageResize = require('gulp-image-resize');
+var globToVinyl = require('glob-to-vinyl');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -48,7 +50,157 @@ gulp.task('images', function () {
     .pipe($.size({title: 'images'}));
 });
 
+gulp.task('image-resize-design', function () {
+  var ratio = 760/962;
+  //MarketBalance
+  var base = 'design/images/stories/';
+  var target = 'app/images/';
+
+  var baseOption = {
+    crop: true,
+    gravity: 'SouthWest',
+    upscale: true
+  };
+
+  var large = {
+    width: 1000,
+    height: 1000 * ratio
+  };
+
+  var thumbnails = {
+    width : 171,
+    height : 171 * ratio
+  };
+
+  var doubleThumbnails = {
+    width: 171 * 2 + 12,
+    height: (171 * 2 + 12) * (790 / 1000)
+  };
+
+  var folders = [
+    {
+      folder: 'marketbalance',
+      exception: [ {
+        name: 'MarketBalance1.png',
+        thumbnailsOption: doubleThumbnails
+      }]
+    },
+    {
+      folder: 'tpo',
+      exception: [ {
+        name: 'tpo1.png',
+        thumbnailsOption: doubleThumbnails
+      }]
+    },
+    {
+      folder: 'tpo_rangeselect',
+      exception: [ {
+        name: 'TPOChart_RangeSelect.png',
+        thumbnailsOption: doubleThumbnails
+      }]
+    },
+    {
+      folder: 'mplines',
+      exception: [
+        {
+          name: 'MPLines.png',
+          thumbnailsOption: doubleThumbnails
+        },
+        {
+          name: 'MPLines_Parameters.png',
+          option: {
+            width : large.width,
+            height : large.height,
+            crop : false,
+            gravity: 'SouthWest',
+            upscale : false
+          },
+          thumbnailsOption: {
+            width : doubleThumbnails.width,
+            height : doubleThumbnails.height,
+            crop : false,
+            gravity: 'SouthWest',
+            //imageMagick: true,
+            upscale : true
+          }
+        }]
+      },
+      {
+        folder: 'deltapackage',
+        exception: [
+          {
+            name: 'AccumulatedDelta.png',
+            thumbnailsOption: doubleThumbnails
+          },
+          {
+            name: 'DeltaDivergance.png',
+            thumbnailsOption: doubleThumbnails
+          }
+        ]
+      }
+    ];
+
+  var merge_options = function(obj1,obj2) {
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    if (obj2) {
+      for (var attrname in obj2) {
+        obj3[attrname] = obj2[attrname];
+      }
+    }
+    return obj3;
+  };
+
+  var resizeImage = function(fileName, size, folder) {
+    var options = merge_options(baseOption, size);
+
+    return gulp.src(fileName)
+      .pipe(imageResize(options))
+      .pipe(gulp.dest(target + folder));
+  };
+
+  globToVinyl('design/images/stories/**/*.png', function(err, files){
+    for (var key in files) {
+      var file = files[key];
+
+
+      for (var folderKey in folders) {
+        var folder = folders[folderKey];
+        //console.log(folder);
+        if (file.path.toUpperCase().indexOf((file.base + folder.folder).toUpperCase()) === 0) {
+          var found = false;
+          for (var exKey in folder.exception) {
+            var ex = folder.exception[exKey];
+            if (file.path.toUpperCase().indexOf(ex.name.toUpperCase()) > 0) {
+              console.log(file.path);
+              found = true;
+
+              var options;
+              options = merge_options(large, ex.option);
+              resizeImage(file.path, options, folder.folder);
+
+              options = merge_options(thumbnails, ex.thumbnailsOption);
+              resizeImage(file.path, options, folder.folder + '/thumbnails');
+
+            }
+          }
+
+          if (!found) {
+            resizeImage(file.path, large, folder.folder);
+            resizeImage(file.path, thumbnails, folder.folder + '/thumbnails');
+          }
+        }
+      }
+
+    }
+
+  });
+});
+
+
 gulp.task('image-resize', function () {
+  var ratio = 760/962;
+
   gulp.src('app/images/thumbnails/**')
     .pipe(imageResize({
       width : 240,
@@ -66,13 +218,18 @@ gulp.task('copy-images', function () {
     .pipe(gulp.dest('dist/images/'))
     .pipe($.size({title: 'copy-images'}));
 
-  gulp.src(['app/images/logo/*'])
-    .pipe(gulp.dest('dist/images/logo'))
-    .pipe($.size({title: 'copy-images'}));
+  var paths = ['logo', 'icons', 'marketbalance', 'tpo', 'mplines', 'tpo_rangeselect', 'deltapackage'];
+  var promises = paths.map(function (key) {
+    var deferred = Q.defer();
+    gulp.src('app/images/'+key+'/**/*')
+      .pipe(gulp.dest('dist/images/'+key))
+      .on('end', function () {
+        deferred.resolve();
+      });
 
-  return gulp.src(['app/images/icons/*'])
-    .pipe(gulp.dest('dist/images/icons'))
-    .pipe($.size({title: 'copy-images'}));
+    return deferred.promise;
+  });
+  return Q.all(promises);
 });
 
 
@@ -146,7 +303,7 @@ gulp.task('watch', ['connect'], function () {
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'image-resize', 'copy-images', 'fonts', 'extras'], function () {
+gulp.task('build', ['jshint', 'html', /*'images',*/  'image-resize', 'copy-images', 'fonts', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

@@ -10,12 +10,12 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="../bower_components/photoswipe/dist/photoswipe.css" />
-  <link rel="stylesheet" href="../bower_components/photoswipe/dist/default-skin/default-skin.css" />
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="../bower_components/photoswipe/dist/photoswipe.css" />
+  <link rel="stylesheet" href="../bower_components/photoswipe/dist/default-skin/default-skin.css" />
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
@@ -53,73 +53,341 @@
 
 <main>
   <section class="styleguide__editorial-header">
-
     <div class="editorial-header">
       <div class="container">
         <h2 class="xlarge">Final MarketBalance</h2>
         <p class="editorial-header__excerpt g-wide--pull-1">Final MarketBalance is a unique way to view prices, bid, ask and volume together on the same chart while showing the relation between market powers as they change during the trading session.</p>
 
         <ul class="list-links list-links--primary">
-          <li class="list__item"><a href="http://ftp.fin-alg.info/MarketBalance/MarketBalance_NT7_Setup.exe" title="Install Package">Install Package</a> for NinjaTrader 7 (Include 14 days Free Trail)</li>
+          <li class="list__item"><a href="http://ftp.fin-alg.info/MarketBalance/MarketBalance_NT7_Setup.exe" title="Install Package">Install Package</a> for NinjaTrader 7 (Include 14 days free trial)</li>
           <li><a href="http://ftp.fin-alg.info/MarketBalance/MARKET%20BALANCE%20Indicator%20-%20User%20Guide.pdf" title="User Guide">User Guide</a></li>
           <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XTKB8TDJCQ9HA" title="Subscribe">Subscribe</a> for $59/Month (through PayPal)</li>
           <li><a href="/market-balance-faq.html" title="Frequently Asked Questions">Frequently Asked Questions</a></li>
         </ul>
 
-        <h3>Features</h3>
-        <p>MARKET BALANCE (volume at price) views</p>
-        <ul>
-          <li>Bid/Ask</li>
-          <li>Bid/Ask Ladder</li>
-          <li>Delta</li>
-          <li>Graduated Volume</li>
-          <li>Delta Colored Volume</li>
-          <li>High/Low Volume</li>
-          <li>Volume Histogram</li>
-        </ul>
-        <p>Totals (per bar):</p>
-        <ul>
-          <li>Ask</li>
-          <li>Bid</li>
-          <li>Delta</li>
-          <li>Max Delta</li>
-          <li>Min Delta</li>
-          <li>Cumulative Delta</li>
-          <li>Cumulative Delta/Cumulative Volume %</li>
-          <li>Volume</li>
-          <li>Cumulative Volume</li>
-        </ul>
-        <p>Totals (per price per session):</p>
-        <ul>
-          <li>Volume</li>
-          <li>Bid/Ask Histogram</li>
-          <li>Price Ladder</li>
-        </ul>
-        <p>Candle Body:</p>
-        <ul>
-          <li>Highlights Open/Close of overall MARKET BALANCE bar</li>
-        </ul>
-        <p>Action Bar</p>
-        <ul>
-          <li>Operates independently to the right of the current bar, and displays the immediate price action in any of the MARKET BALANCE views.</li>
-        </ul>
-        <p>Delta Calculation Type by</p>
-        <ul>
-          <li>Bid/Ask</li>
-          <li>UpTick/DownTick</li>
-        </ul>
-        <p>Data Feed:</p>
-        <ul>
-          <li>Uses any data feed supported by NinjaTrader</li>
-        </ul>
-        <p>Trading</p>
-        <ul>
-          <li>Integrates with NinjaTrader Chart Trader and provides  direct trading from a MARKET BALANCE chart (requires a Live Trading NinjaTrader).</li>
-        </ul>
+        <h3>Screen Shots</h3>
+        <div class="screenshot-gallery" data-pswp-uid="1" data-author="MarketBalance">
+
+          <a href="/images/marketbalance/MarketBalance1.png" data-size="1000x790" class="screenshot-gallery__img--main">
+            <img src="/images/marketbalance/thumbnails/MarketBalance1.png" alt=""  class="gallery-large-image">
+            <figure>Delta View.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalance3.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalance3.png" alt="">
+            <figure>Bid x Ask View.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalance4.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalance4.png" alt="">
+            <figure>Bid/Ask Ladder View.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalance5.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalance5.png" alt="">
+            <figure>Delta View.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalance6.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalance6.png" alt="">
+            <figure>Delta as Percentage View.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalance7.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalance7.png" alt="">
+            <figure>Volume View.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalance8.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalance8.png" alt="">
+            <figure>Delta values colored by volume.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalance9.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalance9.png" alt="">
+            <figure>Highlight High and Low volume prices on each bar.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalanceA.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalanceA.png" alt="">
+            <figure>Volume at price as histogram</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalanceB.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalanceB.png" alt="">
+            <figure>Delta, different colors.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalanceC.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalanceC.png" alt="">
+            <figure>Delta, different colors.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalanceD.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalanceD.png" alt="">
+            <figure>Additional NinjaTrader chart menu, select bar display mode.</figure>
+          </a>
+
+          <a href="/images/marketbalance/MarketBalanceE.png" data-size="1000x790">
+            <img src="/images/marketbalance/thumbnails/MarketBalanceE.png" alt="">
+            <figure>Additional NinjaTrader chart menu, select which of the bottom totals values to display.</figure>
+          </a>
+        </div>
+
+
+        <!-- Root element of PhotoSwipe. Must have class pswp. -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+          <!-- Background of PhotoSwipe.
+               It's a separate element, as animating opacity is faster than rgba(). -->
+          <div class="pswp__bg"></div>
+
+          <!-- Slides wrapper with overflow:hidden. -->
+          <div class="pswp__scroll-wrap">
+
+            <!-- Container that holds slides.
+                    PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+            <div class="pswp__container">
+              <!-- don't modify these 3 pswp__item elements, data is added later on -->
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+            </div>
+
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+
+              <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                  <div class="pswp__preloader__icn">
+                    <div class="pswp__preloader__cut">
+                      <div class="pswp__preloader__donut"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+              </div>
+
+              <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+              </button>
+
+              <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+              </button>
+
+              <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+              </div>
+
+            </div>
+
+          </div>
 
       </div>
     </div>
+  </div>
   </section>
+
+
+
+  <section class="styleguide__editorial-header">
+    <div class="editorial-header">
+      <div class="container">
+        <h2 class="xlarge">TPO and Volume Profile Chart</h2>
+        <p class="editorial-header__excerpt g-wide--pull-1">Provides a complete TPO (AKA MarketProfile) and Volume chart solution that is integrates fully with NinjaTrader Chart Trader, other indicators and chart drawing tools.</p>
+
+        <ul class="list-links list-links--primary">
+          <li class="list__item"><a href="http://ftp.fin-alg.info/TPOChart4/TPOChart_NT7_Setup.exe" title="Install Package">Install Package</a> for NinjaTrader 7 (Include 7 days free trial)</li>
+          <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FLNUHLN64UQSA" title="Purchase">Purchase now for $269</a> (through PayPal)</li>
+          <li><a href="/tpo-faqs.html" title="Frequently Asked Questions">Frequently Asked Questions</a></li>
+        </ul>
+
+        <h3>Main Features</h3>
+        <ul>
+          <li>Complete TPO and Volume Chart Implementation.</li>
+          <li>Fully integrated with NinjaTrader Chart Trader , other indicators (applicable only for some indicators) and chart drawing tools. Use NinjaTrader Chart tool bar, Context Menu and Hot Keys for Fast Access to Operations.</li>
+          <li>Flexible Session Hours Configuration (e.g. Globex, RTH) Using NinjaTrader 7 Session Manager.</li>
+          <li>Splits Sessions into Multiple Profiles and Merges Multiple Sessions to One Profile.</li>
+        </ul>
+
+        <h3>Screen Shots</h3>
+        <div class="screenshot-gallery" data-pswp-uid="1" data-author="TPO and Volume Profile Chart">
+
+          <a href="/images/tpo/tpo1.png" data-size="1000x790" class="screenshot-gallery__img--main">
+            <img src="/images/tpo/thumbnails/tpo1.png" alt=""  class="gallery-large-image">
+            <figure>TPO and Volume Profile Chart</figure>
+          </a>
+
+          <a href="/images/tpo/tpo3.png" data-size="1000x790">
+            <img src="/images/tpo/thumbnails/tpo3.png" alt="">
+            <figure>Merged Profile</figure>
+          </a>
+
+          <a href="/images/tpo/tpo4.png" data-size="1000x790">
+            <img src="/images/tpo/thumbnails/tpo4.png" alt="">
+            <figure>NinjaTrader chart right click menu options specific to TPOChart</figure>
+          </a>
+
+          <a href="/images/tpo/tpo5.png" data-size="1000x790">
+            <img src="/images/tpo/thumbnails/tpo5.png" alt="">
+            <figure>Split Profile</figure>
+          </a>
+
+          <a href="/images/tpo/tpo6.png" data-size="1000x790">
+            <img src="/images/tpo/thumbnails/tpo6.png" alt="">
+            <figure>Without color bars</figure>
+          </a>
+
+          <a href="/images/tpo/tpo7.png" data-size="1000x790">
+            <img src="/images/tpo/thumbnails/tpo7.png" alt="">
+            <figure>TPO overlay Volume histogram</figure>
+          </a>
+
+          <a href="/images/tpo/tpo8.png" data-size="1000x790">
+            <img src="/images/tpo/thumbnails/tpo8.png" alt="">
+            <figure>Without Volume Historgram</figure>
+          </a>
+
+          <a href="/images/tpo/tpo9.png" data-size="1000x790">
+            <img src="/images/tpo/thumbnails/tpo9.png" alt="">
+            <figure>One color TPO</figure>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="styleguide__editorial-header">
+    <div class="editorial-header">
+      <div class="container">
+        <h2 class="xlarge">TPO and Volume Profile Chart - Range Select</h2>
+        <p class="editorial-header__excerpt g-wide--pull-1">Manual draw and adjust profiles.</p>
+
+        <ul class="list-links list-links--primary">
+          <li class="list__item"><a href="http://ftp.fin-alg.info/TPOChart4_RangeSelect/TPOChart4_RangeSelect_NT7_Setup.exe" title="Install Package">Install Package</a> for NinjaTrader 7 (Include 7 days free trial)</li>
+          <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9V6EAA39CEN2L" title="Purchase">Purchase now for $129</a> (through PayPal)</li>
+        </ul>
+
+        <h3>Main Features</h3>
+        <ul>
+          <li>Manually draw custom sessions on any chart.</li>
+          <li>Draw multiple sessions, Delete and adjust any session.</li>
+          <li>Easy session modification with mouse drag & drop.</li>
+          <li>Automatically save and reload plotted sessions.</li>
+        </ul>
+
+        <h3>Screen Shots</h3>
+        <div class="screenshot-gallery" data-pswp-uid="1" data-author="TPO and Volume Profile Chart - Range Select">
+
+          <a href="/images/tpo_rangeselect/TPOChart_RangeSelect.png" data-size="1000x790" class="screenshot-gallery__img--main">
+            <img src="/images/tpo_rangeselect/thumbnails/TPOChart_RangeSelect.png" alt=""  class="gallery-large-image">
+            <figure>Two manually selected profiles</figure>
+          </a>
+
+        </div>
+        <iframe width="354" height="282" src="//www.youtube.com/embed/N6ZbhmexKME" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="styleguide__editorial-header">
+    <div class="editorial-header">
+      <div class="container">
+        <h2 class="xlarge">Market Profile Lines</h2>
+        <p class="editorial-header__excerpt g-wide--pull-1">Show Volume histogram and Developing Value area and POC (Point of control).</p>
+
+        <ul class="list-links list-links--primary">
+          <li class="list__item"><a href="http://ftp.fin-alg.info/MPLines/MPL_NT7_Setup.exe" title="Install Package">Install Package</a> for NinjaTrader 7 (Include 7 days free trial)</li>
+          <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4VVY72YYK5DQ2" title="Purchase">Purchase now for $249</a> (through PayPal)</li>
+        </ul>
+
+        <h3>Main Features</h3>
+        <ul>
+          <li>Volume Distribution.</li>
+          <li>See Value Area/POC as they develop.</li>
+          <li>See Previous Value Area/POC Values projected.</li>
+          <li>Highly configurable.</li>
+        </ul>
+
+        <h3>Screen Shots</h3>
+        <div class="screenshot-gallery" data-pswp-uid="1" data-author="Market Profile Lines">
+
+          <a href="/images/mplines/MPLines.png" data-size="1000x790" class="screenshot-gallery__img--main">
+            <img src="/images/mplines/thumbnails/MPLines.png" alt=""  class="gallery-large-image">
+            <figure>TPO and Volume Profile Chart</figure>
+          </a>
+
+          <a href="/images/mplines/MPLines_DataBox.png" data-size="1000x790">
+            <img src="/images/mplines/thumbnails/MPLines_DataBox.png" alt="">
+            <figure>Merged Profile</figure>
+          </a>
+
+          <a href="/images/mplines/MPLines_Parameters.png" data-size="878x1021">
+            <img src="/images/mplines/thumbnails/MPLines_Parameters.png" alt="">
+            <figure>NinjaTrader chart right click menu options specific to TPOChart</figure>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="styleguide__editorial-header">
+    <div class="editorial-header">
+      <div class="container">
+        <h2 class="xlarge">Delta Divergence & Accumulated Delta</h2>
+        <p class="editorial-header__excerpt g-wide--pull-1">Delta describe the net difference between the buying and selling entering the market. It is calculated by subtracting the volume transacted at the bid price from the volume transacted at the ask price. Trades that occur at the ask price are trades that initiated by aggressive buyers. Trades that occur at the bid price are considered to be initiated by aggressive sellers. Thus, a positive delta would reflect more aggressive buying as the result of motivated buyers lifting the ask. A negative delta would reflect more aggressive selling as the result of motivated sellers hitting the bid.
+          Delta Divergence Indicator show the delta of each bar as Histogram
+          Accumulated Delta show the development of delta over the session or between sessions.</p>
+
+        <ul class="list-links list-links--primary">
+          <li class="list__item"><a href="http://ftp.fin-alg.info/DeltaPackage/DeltaPackage_NT7_Setup.exe" title="Install Package">Install Package</a> for NinjaTrader 7 (Include 7 days free trial)</li>
+          <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VYEMFY3WT7L44" title="Purchase">Purchase now for $149</a> (through PayPal)</li>
+        </ul>
+
+        <h3>Main Features</h3>
+        <ul>
+          <li>Show Delta or Accumulated Delta.</li>
+          <li>Filter to see only large transactions (Blocks).</li>
+          <li>Show historical data.</li>
+        </ul>
+
+        <h3>Screen Shots</h3>
+        <div class="screenshot-gallery" data-pswp-uid="1" data-author="Delta Divergence & Accumulated Delta">
+
+          <a href="/images/deltapackage/AccumulatedDelta.png" data-size="1000x790" class="screenshot-gallery__img--main">
+            <img src="/images/deltapackage/thumbnails/AccumulatedDelta.png" alt=""  class="gallery-large-image">
+            <figure>Accumulated Delta Indicator</figure>
+          </a>
+
+          <a href="/images/deltapackage/DeltaDivergance.png" data-size="1000x790" class="screenshot-gallery__img--main">
+            <img src="/images/deltapackage/thumbnails/DeltaDivergance.png" alt="" class="gallery-large-image">
+            <figure>Delta Divergance Indicator</figure>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
