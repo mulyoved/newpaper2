@@ -8,6 +8,9 @@ var runSequence = require('run-sequence');
 require('gulp-grunt')(gulp);
 var imageResize = require('gulp-image-resize');
 var globToVinyl = require('glob-to-vinyl');
+var handlebars = require('gulp-compile-handlebars');
+var rename = require('gulp-rename');
+var debug = require('gulp-debug');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -27,10 +30,10 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('html', ['styles'], function () {
+gulp.task('html', ['styles', 'handlbars'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
-  return gulp.src('app/*.html')
+  return gulp.src('.tmp/*.html')
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
@@ -243,7 +246,7 @@ gulp.task('fonts', function () {
 gulp.task('extras', function () {
   return gulp.src([
     'app/*.*',
-    '!app/*.html',
+    '!.tmp/*.html',
     'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
@@ -252,7 +255,7 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('connect', ['styles'], function () {
+gulp.task('connect', ['styles', 'handlbars'], function () {
   var serveStatic = require('serve-static');
   var serveIndex = require('serve-index');
   var app = require('connect')()
@@ -276,14 +279,14 @@ gulp.task('serve', ['connect', 'watch'], function () {
 });
 
 // inject bower components
-gulp.task('wiredep', function () {
+gulp.task('wiredep', ['handlbars'], function () {
   var wiredep = require('wiredep').stream;
 
   gulp.src('app/styles/*.scss')
     .pipe(wiredep())
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/*.html')
+  gulp.src('.tmp/*.html')
     .pipe(wiredep())
     .pipe(gulp.dest('app'));
 });
@@ -293,17 +296,18 @@ gulp.task('watch', ['connect'], function () {
 
   // watch for changes
   gulp.watch([
-    'app/*.html',
+    '.tmp/*.html',
     '.tmp/styles/**/*.css',
     'app/scripts/**/*.js',
     'app/images/**/*'
   ]).on('change', $.livereload.changed);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch(['app/articles/**/*.hbs', 'app/partials/**/*.hbs'], ['handlbars']);
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['jshint', 'html', /*'images',*/  'image-resize', 'copy-images', 'fonts', 'extras'], function () {
+gulp.task('build', ['handlbars', 'jshint', 'html', /*'images',*/  'image-resize', 'copy-images', 'fonts', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
@@ -313,4 +317,21 @@ gulp.task('default', ['clean'], function () {
 
 gulp.task('deploy', function() {
   runSequence('clean', 'build', 'grunt-deploy');
+});
+
+gulp.task('handlbars', function () {
+  var templateData = {};
+  var options = {
+      template: './app/partials/main.hbs',
+      ignorePartials: false, //ignores the unknown footer2 partial in the handlebars template, defaults to false
+      batch : ['./app/partials']
+    };
+
+  return gulp.src('app/articles/**/*.hbs')
+    //.pipe(debug({verbose: false}))
+    .pipe(handlebars(templateData, options))
+    .pipe(rename(function (path) {
+      path.extname = ".html"
+    }))
+    .pipe(gulp.dest('.tmp/'));
 });
