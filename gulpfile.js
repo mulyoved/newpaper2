@@ -221,7 +221,7 @@ gulp.task('copy-images', function () {
     .pipe(gulp.dest('dist/images/'))
     .pipe($.size({title: 'copy-images'}));
 
-  var paths = ['logo', 'icons', 'marketbalance', 'tpo', 'mplines', 'tpo_rangeselect', 'deltapackage'];
+  var paths = ['logo', 'icons', 'marketbalance', 'tpo', 'mplines', 'tpo_rangeselect', 'deltapackage', 'partners', 'platforms'];
   var promises = paths.map(function (key) {
     var deferred = Q.defer();
     gulp.src('app/images/'+key+'/**/*')
