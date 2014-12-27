@@ -2,14 +2,63 @@
   <h2>TPO and Volume Profile Chart Frequently Asked Questions</h2>
 
   <div class="togglebox">
-      <input id="toggle1" type="radio" name="toggle"/>
-      <label for="toggle1">How do I manually split and merge profiles</label>
-      <section>
-          <p>
-              Use the chart context menu (right mouse click)
-          </p>
-          <img src="/images/faq/tposplitandunplit.jpg"">
-      </section>
+    <q>How do I manually split and merge profiles</q>
+    <a>
+Use the chart context menu (right mouse click)
 
-    </div>
+<img src="/images/faq/tposplitandunplit.jpg" width="480" height="352">
+    </a>
+
+    <q>How do I split the profile for day and night sessions</q>
+    <a>
+<img src="/images/faq/sessionmanager.png" width="400" height="247">
+
+To configure the session times and optionally split the profile for day and night session, use the new NT7 session manager to configure the sessions times.
+
+<img src="/images/faq/selectsessiontemplate.png" width="400" height="355">
+
+use this session template when you open the chart, TPOChart will use the session information and will build a profile for each session
+
+For example, in the session manger you can configure those sessions
+
+Sunday 4:16 PM to Monday 9:30 AM
+
+Monday 9:30 AM to Monday 4:15 PM
+
+Monday 4:16 PM to Tuesday 9:30 AM
+
+And so on
+
+To test this open a normal 10 min chart, make sure you get the correct sessions, The add the TPOChart indicator to the chart and set Show Bars = True so you can see the exact bars of each session.
+    </a>
+
+    <q>How to turn off the TPO display and only have the Volume profile on the charts?</q>
+    <a>
+Set parameter #02 Show TPO = False
+<img src="/images/faq/hide_tpo2.png" width="400" height="294">
+    </a>
+
+      <q>How to display a profile for specific date range?</q>
+      <a>
+This is not directly supported but you can:
+1. Display long term profiles like weekly/monthly/yearly profiles (See paramter Session Type)
+2. Display profile for say 180 days back (paramter Session Type = DaysBack and Session Value = 180)
+3. Merge profiles manually
+
+<img src="/images/faq/daysback.png" width="400" height="301">
+
+      </a>
+
+      <q>How to I scale the graphic/scroll vertically?</q>
+      <a>
+To Scroll, use Ctrl-Click on the right side price panel and drag the mouse to reposition
+
+To resize you can click on the right side price panel and drag to change the scale.
+
+A box with an "F" (Fixed) will appear in the upper right corner of the chart margin anytime the vertical chart axis is manually adjusted. This signifies the chart axis is set to a "fixed" scale. Left mouse click this button to return to auto scale.
+
+Also to control how many ticks each letter represent you can modify the value of "Prices per Row (Ticks)" try set it to 4 or 10 this can help to better fit the letters into the chart.
+      </a>
+
+  </div>
 </div>

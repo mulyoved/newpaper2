@@ -11,6 +11,7 @@ var globToVinyl = require('glob-to-vinyl');
 var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 var debug = require('gulp-debug');
+var cheerio = require('gulp-cheerio');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -303,7 +304,7 @@ gulp.task('watch', ['connect'], function () {
   ]).on('change', $.livereload.changed);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch(['app/articles/**/*.hbs', 'app/partials/**/*.hbs'], ['handlbars']);
+  gulp.watch(['app/articles/**/*.hbs', 'app/partials/**/*.hbs', 'app/transforms/**/*.js'], ['handlbars']);
   gulp.watch('bower.json', ['wiredep']);
 });
 
@@ -320,6 +321,7 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('handlbars', function () {
+  var cheerioComponents = require('./app/transforms/cheerioComponents');
   var templateData = {};
   var options = {
       template: './app/partials/main.hbs',
@@ -329,6 +331,9 @@ gulp.task('handlbars', function () {
 
   return gulp.src('app/articles/**/*.hbs')
     //.pipe(debug({verbose: false}))
+    .pipe(cheerio({
+      run: cheerioComponents
+    }))
     .pipe(handlebars(templateData, options))
     .pipe(rename(function (path) {
       path.extname = ".html"

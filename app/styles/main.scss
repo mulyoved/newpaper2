@@ -525,6 +525,10 @@ section {
     transition: max-height 0.3s ease-in-out,box-shadow 0.6s linear;
     overflow: hidden;
     padding-bottom: 0;
+
+    img {
+      margin: 24px;
+    }
   }
 
   input[type="radio"]:checked + label:after {
