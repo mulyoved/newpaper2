@@ -52,13 +52,16 @@ gulp.task('html', ['styles', 'handlbars', 'markdown'], function () {
     .pipe(assets.restore())
     .pipe($.useref())
 
+    /*
+    //CDN the resources
     .pipe(assetpaths({
       newDomain: 'http://np.fin-alg.com',
       oldDomain : 'www.theolddomain.com',
       docRoot : '/',
-      filetypes : ['jpg','jpeg','png','ico','gif','js','css'],
+      filetypes : ['jpg','jpeg','png','ico','gif','js','css', 'eot', 'ttf', 'woff'],
       templates: true
     }))
+    */
 
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
@@ -346,7 +349,10 @@ gulp.task('deploy', function() {
 gulp.task('deploy-cdn', function() {
   var options = {
     //delay: 1000, // optional delay each request by x milliseconds, default is 0
-    headers: {}, // optional additional headers
+    headers: {
+      'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
+      'Access-Control-Allow-Origin': '*'
+    }, // optional additional headers
     uploadPath: "" //optional upload path (uses the container root by default)
   };
 
