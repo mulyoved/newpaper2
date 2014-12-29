@@ -12,6 +12,16 @@ var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 var debug = require('gulp-debug');
 var cheerio = require('gulp-cheerio');
+var sitemap = require('gulp-sitemap');
+var markdown = require('gulp-markdown');
+var insert = require('gulp-insert');
+var localScreenshots = require('gulp-local-screenshots');
+var assetpaths = require('gulp-assetpaths');
+
+var fs = require('fs');
+var cloudfiles = require("gulp-cloudfiles");
+var rackspace = JSON.parse(fs.readFileSync('./rackspace.json'));
+
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -31,15 +41,27 @@ gulp.task('jshint', function () {
     .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('html', ['styles', 'handlbars'], function () {
+gulp.task('html', ['styles', 'handlbars', 'markdown'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
   return gulp.src('.tmp/*.html')
+
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
+
+    /*
+    .pipe(assetpaths({
+      newDomain: 'cdn',
+      oldDomain : 'www.theolddomain.com',
+      docRoot : '/',
+      filetypes : ['jpg','jpeg','png','ico','gif','js','css'],
+      templates: true
+    }))
+    */
+
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
@@ -222,7 +244,10 @@ gulp.task('copy-images', function () {
     .pipe(gulp.dest('dist/images/'))
     .pipe($.size({title: 'copy-images'}));
 
-  var paths = ['logo', 'icons', 'marketbalance', 'tpo', 'mplines', 'tpo_rangeselect', 'deltapackage', 'partners', 'platforms'];
+  gulp.src(['bower_components/photoswipe/dist/default-skin/default-skin.png'])
+    .pipe(gulp.dest('dist/styles/'));
+
+  var paths = ['logo', 'icons', 'marketbalance', 'tpo', 'mplines', 'tpo_rangeselect', 'deltapackage', 'partners', 'platforms', 'faq', 'marketbalance_guide'];
   var promises = paths.map(function (key) {
     var deferred = Q.defer();
     gulp.src('app/images/'+key+'/**/*')
@@ -256,7 +281,7 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('connect', ['styles', 'handlbars'], function () {
+gulp.task('connect', ['styles', 'handlbars', 'markdown'], function () {
   var serveStatic = require('serve-static');
   var serveIndex = require('serve-index');
   var app = require('connect')()
@@ -280,7 +305,7 @@ gulp.task('serve', ['connect', 'watch'], function () {
 });
 
 // inject bower components
-gulp.task('wiredep', ['handlbars'], function () {
+gulp.task('wiredep', ['handlbars', 'markdown'], function () {
   var wiredep = require('wiredep').stream;
 
   gulp.src('app/styles/*.scss')
@@ -304,11 +329,11 @@ gulp.task('watch', ['connect'], function () {
   ]).on('change', $.livereload.changed);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch(['app/articles/**/*.hbs', 'app/partials/**/*.hbs', 'app/transforms/**/*.js'], ['handlbars']);
+  gulp.watch(['app/articles/**/*.hbs', 'app/partials/**/*.hbs', 'app/articles/**/*.md', 'app/transforms/**/*.js'], ['handlbars', 'markdown']);
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['handlbars', 'jshint', 'html', /*'images',*/  'image-resize', 'copy-images', 'fonts', 'extras'], function () {
+gulp.task('build', ['handlbars', 'markdown', 'jshint', 'html', /*'images',*/  'image-resize', 'copy-images', 'fonts', 'extras', 'sitemap'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
@@ -320,23 +345,66 @@ gulp.task('deploy', function() {
   runSequence('clean', 'build', 'grunt-deploy');
 });
 
+gulp.task('deploy-cdn', function() {
+  var options = {
+    //delay: 1000, // optional delay each request by x milliseconds, default is 0
+    headers: {}, // optional additional headers
+    uploadPath: "" //optional upload path (uses the container root by default)
+  };
+
+  gulp.src('./dist/**', {read: false})
+    .pipe(cloudfiles(rackspace, options));
+});
+
+gulp.task('sitemap', ['handlbars', 'markdown'], function () {
+  gulp.src('.tmp/**/*.html')
+    .pipe(sitemap({
+      siteUrl: 'http://newpaper.fin-alg.com/'
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+var handlbarsOptions = {
+  template: './app/partials/main.hbs',
+  ignorePartials: false, //ignores the unknown footer2 partial in the handlebars template, defaults to false
+  batch : ['./app/partials']
+};
+
 gulp.task('handlbars', function () {
   var cheerioComponents = require('./app/transforms/cheerioComponents');
   var templateData = {};
-  var options = {
-      template: './app/partials/main.hbs',
-      ignorePartials: false, //ignores the unknown footer2 partial in the handlebars template, defaults to false
-      batch : ['./app/partials']
-    };
 
   return gulp.src('app/articles/**/*.hbs')
     //.pipe(debug({verbose: false}))
     .pipe(cheerio({
       run: cheerioComponents
     }))
-    .pipe(handlebars(templateData, options))
+    .pipe(handlebars(templateData, handlbarsOptions))
     .pipe(rename(function (path) {
       path.extname = ".html"
     }))
     .pipe(gulp.dest('.tmp/'));
 });
+
+gulp.task('markdown', function () {
+  return gulp.src('app/articles/**/*.md')
+    .pipe(markdown())
+    .pipe(insert.wrap('<div class="marketbalance-guide">', '</div>'))
+    .pipe(handlebars({}, handlbarsOptions))
+    .pipe(rename(function (path) {
+      path.extname = ".html"
+    }))
+    .pipe(gulp.dest('.tmp/'));
+});
+
+gulp.task('screens', function () {
+  gulp.src('.tmp/*.html')
+    .pipe(localScreenshots({
+      path: '/',
+      port: 9000,
+      server: false,
+      width: ['1600', '1000', '480', '320']
+    }))
+    .pipe(gulp.dest('./screens/'));
+});
+

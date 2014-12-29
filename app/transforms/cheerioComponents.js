@@ -1,3 +1,5 @@
+var cheerio = require('cheerio');
+var sizeOf = require('image-size');
 var marked = require("marked");
 var Remarkable = require('remarkable');
 var md = new Remarkable({
@@ -38,7 +40,7 @@ module.exports = function ($) {
   var qs = $('q');
   if (qs.length > 0) {
     //console.log(q);
-    var id = 2;
+    var id = 1;
     qs.each( function(index, element) {
       var q = $(this);
       var a = q.next();
@@ -47,17 +49,59 @@ module.exports = function ($) {
         answer: a.html()
       };
 
-      var qContent = $('<input id="toggle'+id+'" type="radio" name="toggle"/>'+
-      '<label for="toggle'+id+'">'+faq.question+'</label>');
+      var qContent = $(
+        '<a name="faq' + +id + '"></a>'+
+        '<input id="toggle'+id+'" type="radio" name="toggle"/>'+
+        '<label for="toggle'+id+'">'+faq.question+'</label>');
 
       q.replaceWith( qContent );
 
-      var decode = he.decode(faq.answer);
-      var markedText = md.render(decode);
-      var aContent = $('<section>'+markedText+'</section>');
+      if (faq.answer) {
+        var decode = he.decode(faq.answer);
+        var markedText = md.render(decode);
 
-      a.replaceWith( aContent );
-      id++;
+        $c = cheerio.load(markedText);
+        var imageList = $c('img');
+        if (imageList.length > 0) {
+          $c('img').each(function (index, element) {
+            var i = $(this);
+
+            var img = {
+              src: i.attr('src'),
+              width: i.attr('width'),
+              height: i.attr('height')
+            };
+
+
+            //from
+            //<img src="/images/faq/tposplitandunplit.jpg" width="480" height="352">
+
+            //to
+            //<a href="/images/marketbalance/MarketBalance1.png" data-size="1000x790" class="screenshot-gallery__img--main">
+            //<img src="/images/marketbalance/thumbnails/MarketBalance1.png" alt=""  class="gallery-large-image">
+            //<figure>Delta View.</figure>
+            //</a>
+
+            var dimensions = sizeOf('app' + img.src);
+            //console.log(dimensions.width, dimensions.height);
+
+            var imgContent =
+              '<div class="screenshot-gallery" data-pswp-uid="1" data-author="">' +
+              '<a href="' + img.src + '" data-size="'+dimensions.width+ 'x' + dimensions.height + '" class="screenshot-gallery__img--main">' +
+              '<img src="' + img.src + '" alt="" width="' + img.width + '" height="' + img.height + '">' +
+              '<figure>' + faq.question + '</figure>' +
+              '</div>';
+
+            i.replaceWith(imgContent);
+          });
+        }
+        markedText = $c.html();
+
+        var aContent = $('<section>' + markedText + '</section>');
+
+        a.replaceWith(aContent);
+        id++;
+      }
     });
     //console.log(a);
   }

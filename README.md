@@ -49,6 +49,19 @@ mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 </IfModule>
 
 
+D:\js\newpaper2\node_modules\gulp-local-screenshots\index.js
+
+line: 12
+  var url = opts.protocol + '://' +  opts.host + ':' + opts.port + '/' + filename;
+  
+line: 68
+  opts.server = options.server || false;
+  
+https://github.com/danielhusar/gulp-local-screenshots/issues/3  
+
+
+
+
 # [![Web Starter Kit](https://cloud.githubusercontent.com/assets/170270/3343034/ceef6e92-f899-11e3-96b9-5d9d69d97a00.png)](https://github.com/google/web-starter-kit/releases/latest)
 
 ## Overview

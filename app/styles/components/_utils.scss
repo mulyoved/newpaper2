@@ -332,9 +332,10 @@
   @mixin numbered-list() {
     &::before {
       counter-increment: list;
-      content: '0' counter(list);
+      //content: '0' counter(list);
+      content: counter(list) '.';
       color: inherit;
-      font-weight: 400;
+      font-weight: 300;
       display: inline-block;
       position: absolute;
       left: 0;

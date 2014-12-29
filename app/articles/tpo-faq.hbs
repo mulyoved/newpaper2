@@ -1,7 +1,8 @@
 <div class="container">
-  <h2>TPO and Volume Profile Chart Frequently Asked Questions</h2>
+    <h2>TPO and Volume Profile Chart Frequently Asked Questions</h2>
 
-  <div class="togglebox">
+    <div class="togglebox">
+
     <q>How do I manually split and merge profiles</q>
     <a>
 Use the chart context menu (right mouse click)
@@ -41,15 +42,15 @@ Set parameter #02 Show TPO = False
       <q>How to display a profile for specific date range?</q>
       <a>
 This is not directly supported but you can:
-1. Display long term profiles like weekly/monthly/yearly profiles (See paramter Session Type)
-2. Display profile for say 180 days back (paramter Session Type = DaysBack and Session Value = 180)
-3. Merge profiles manually
+* Display long term profiles like weekly/monthly/yearly profiles (See paramter Session Type)
+* Display profile for say 180 days back (paramter Session Type = DaysBack and Session Value = 180)
+* Merge profiles manually
 
 <img src="/images/faq/daysback.png" width="400" height="301">
 
       </a>
 
-      <q>How to I scale the graphic/scroll vertically?</q>
+      <q>How to scale the graphic/scroll vertically?</q>
       <a>
 To Scroll, use Ctrl-Click on the right side price panel and drag the mouse to reposition
 
@@ -60,5 +61,149 @@ A box with an "F" (Fixed) will appear in the upper right corner of the chart mar
 Also to control how many ticks each letter represent you can modify the value of "Prices per Row (Ticks)" try set it to 4 or 10 this can help to better fit the letters into the chart.
       </a>
 
-  </div>
+      <q>How to make the bars plot above the profiles so the profile does not hide the bars</q>
+      <a>
+On the indicator properties set "01: Show Bars" = True
+
+Then to configure the normal chart bars to plot above the profiles you need to change the Z Order of the bars, to do it:
+
+Make sure the bars are selectable, got to chart properties (Ctrl-T) and set "Allow the selection or drag/drop of chart series" = true
+
+Select the bars by click on them
+
+Use the Shift and Mouse scroll wheel to change the bars Z order until they plot above the graphics
+          <img src="/images/faq/zorder3.png" width="544" height="342">
+      </a>
+
+      <q>Customized The Volume Histogram Colors</q>
+      <a>
+<img src="/images/faq/paint colored volume histogram.png" width="640" height="402">
+
+Other options for Volume Bars Color Mode are One Color and Gradient
+<img src="/images/faq/gradient colors.png" width="640" height="472">
+      </a>
+
+      <q>How to show "x Days Back" profile at the right or left of the chart</q>
+      <a>
+<img src="/images/faq/show last x days profile.png" width="640" height="388">
+      </a>
+
+      <q>How to make the data box (upper left window) larger</q>
+      <a>
+Change the font size of the data box to control the font and data box size, see image
+<img src="/images/faq/tpodataboxsize.png" width="480" height="344">
+      </a>
+
+      <q>Some days data is missing, what can be done?</q>
+      <a>
+TPOChart is based on NinjaTrader data, to analyze the problem:
+* Open new normal 10 min chart, make sure you get all the data if not, use the chart context menu to realod history
+* Add the TPOChart Indicator to the chart, don't use the template, just add the indicator to the chart
+* Set Show Bars (Overlay) = True, this will show the chart bars, see if you still get all the bars for the missing days
+      </a>
+
+      <q>What is Rotation Factor?</q>
+      <a>
+<img src="/images/faq/mprotationfactor.png" width="340" height="299">
+
+Rotation Factor - Each letter is given a +1 if it's high is above high of previous letter, and a -1 if it's high is below high of previous letter. In addition, a +1 or -1 is added based on whether the low was above or below the previous low. Each letters RF (anywhere from -2 to +2) is summed to provide the RF of the profile.
+      </a>
+
+      <q>What is TPO Count numbers in the data box?</q>
+      <a>
+<img src="/images/faq/mptpocount.png" width="300" height="264">
+
+Total number of letters, and in brackets, above /below the POC.
+      </a>
+
+      <q>How do I configure for hourly profile and 3 min TPO Size?</q>
+      <a>
+<img src="/images/faq/3minTPOSize.png" width="480" height="305">
+      </a>
+
+      <q>Change letter color</q>
+      <a>
+Right now letters colors are hard coded, can change all of them to diffrent color or use the predefined color schema, to change:
+<img src="/images/faq/tpochangelettercolor.png" width="480" height="385">
+      </a>
+
+      <q>How to build a profile “from a start date”?</q>
+      <a>
+Set session Type = Date
+
+Set Start Date
+<img src="/images/faq/tpoprofilefromdate.png" width="480" height="372">
+      </a>
+
+      <q>How to use with EOD (Daily) data?</q>
+      <a>
+See image for recommended setup
+<img src="/images/faq/tpowithdailychart.png" width="640" height="312">
+      </a>
+
+      <q>Will TPOChart will work with my data feed?</q>
+      <a>
+Any data feed that work with NinjatTrader will be fine for TPOChart
+      </a>
+
+      <q>What type of data is needed?</q>
+      <a>
+Usually TPOChart need 1 min data, for extra accuracy tot he calculation of the volume profile 1tick data can be used (configurable)
+      </a>
+
+      <q>What is "Use 1 tick data"?</q>
+      <a>
+Can be used to get more accurate volume profile, does not recommended as it take more CPU and the difference in the volume calculation is not significant
+      </a>
+
+      <q>Where I can find the latest version?</q>
+      <a>
+Latest version can always be found in [Products](/products.html) page
+      </a>
+
+      <q>Can I can get notifications on new versions?</q>
+      <a>
+Updates notifications are posted to this [Facebook Page](https://www.facebook.com/pages/Final-Financial-Algorithms/101355999958273)
+      </a>
+
+      <q>How do I check which version I have?</q>
+      <a>
+On the Installer when installing the package
+<img src="/images/faq/TPOChartInstallerVersion.png" width="418" height="325">
+
+On NinjaTrader log
+<img src="/images/faq/TPOChartVersion.png" width="612" height="127">
+      </a>
+
+      <q>I have two PC can I install TPOChart on both using one license?</q>
+      <a>
+Yes, you can use TPOChar on up to two PC for the price of one license
+      </a>
+
+      <q>Downloaded and installed TPOChart, cannot find it in my indicator list</q>
+      <a>
+* Confirm the installation was working correctly by checking the folder Documents\NinjaTrader 7\bin\Custom and make sure you have a file Final.TPOChart.dll,
+  * If not exit NinjaTrader, make sure AntiVirus is disabled and run the installer again.
+  * If still cannot find it check if the dll was installed under different user, in that case try to install again and make sure to install to the correct user or you can just copy the dll to the right user.
+* After starting NinjaTrader check the NinjaTrader log and make sure DLL was loaded correctly, look for a line that say "Vendor assembly 'Final.TPOChart' version='4.0.0.22' loaded"
+* Open the indicator list and look for " TPO and Volume Profile Chart (v4)", Notice it should be at the top of the list as there is a leading space to the name.
+      </a>
+
+      <q>Can I see list of parameters?</q>
+      <a>
+List of available configurable parameters
+<img src="/images/faq/TPOChart_Parameters.png" alt="TPOChart_Parameters" width="500" height="954">
+      </a>
+
+      <q>Do you have any suggestion or tutorial how to trade with TPOChart?</q>
+      <a>
+Start from here [Trading Naked](http://www.trading-naked.com/MarketProfile.htm)
+
+and
+
+Free TPO Class [EminiTradingSchool](http://eminitradingschool.com/free-tpo-class/)
+      </a>
+
+    </div>
 </div>
+{{> imageswipe}}

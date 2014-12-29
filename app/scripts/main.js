@@ -29,4 +29,11 @@
       closeMenu();
     }
   });
+
+  var url = document.URL;
+  if (url.indexOf('#faq') > 0) {
+    var id = url.substring(url.indexOf('#faq')+4,url.length);
+    document.getElementById('toggle' + id).click();
+  }
+
 })();

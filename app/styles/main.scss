@@ -410,6 +410,7 @@ a {
 
 .guides-list {
   text-align: center;
+  padding-top: 0;
 }
 
 
@@ -471,7 +472,7 @@ section {
   border-bottom: 1px solid #ccc;
 }
 
-.togglebox {
+.togglebox { // FAQ
   margin-top: 1.625em;
   border-top: 1px solid #ddd;
   border-left: 1px solid #ddd;
@@ -487,11 +488,12 @@ section {
     //@include type--large;
 
     font-family: $fontHighlight;
-    font-size: $fontLarge;
+    font-size: $fontMedium;
     font-weight: 300;
 
-    padding-top: 0px;
+    padding-top: 0;
     padding-left: 20px;
+    padding-right: 30px;
     line-height: 50px;
     //border-top: 1px solid #ddd;
     background: $colorGrayBackground;
@@ -529,6 +531,11 @@ section {
     img {
       margin: 24px;
     }
+
+    ul {
+      padding-top: 0;
+      margin-bottom: 15px;
+    }
   }
 
   input[type="radio"]:checked + label:after {
@@ -553,5 +560,33 @@ section {
   p {
     margin: 15px 0;
     padding: 0 20px;
+  }
+
+  .screenshot-gallery {
+    margin-top: 1.625em;
+
+    a {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-touch-callout: none;
+      display: block;
+      float: none;
+      margin: 0 12px 12px 0;
+      //width: 171px;
+      line-height: 0;
+    }
+  }
+
+}
+
+
+.marketbalance-guide {
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h3 {
+    font-weight: 400;
   }
 }

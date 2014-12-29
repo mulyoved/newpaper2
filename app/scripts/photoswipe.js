@@ -216,4 +216,4 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
   }
 };
 
-initPhotoSwipeFromDOM('.screenshot-gallery');
+initPhotoSwipeFromDOM('.screenshot-gallery a');
