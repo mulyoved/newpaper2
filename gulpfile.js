@@ -52,15 +52,13 @@ gulp.task('html', ['styles', 'handlbars', 'markdown'], function () {
     .pipe(assets.restore())
     .pipe($.useref())
 
-    /*
     .pipe(assetpaths({
-      newDomain: 'cdn',
+      newDomain: 'http://np.fin-alg.com',
       oldDomain : 'www.theolddomain.com',
       docRoot : '/',
       filetypes : ['jpg','jpeg','png','ico','gif','js','css'],
       templates: true
     }))
-    */
 
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
@@ -342,7 +340,7 @@ gulp.task('default', ['clean'], function () {
 });
 
 gulp.task('deploy', function() {
-  runSequence('clean', 'build', 'grunt-deploy');
+  runSequence('clean', 'build', 'grunt-deploy', 'deploy-cdn');
 });
 
 gulp.task('deploy-cdn', function() {
