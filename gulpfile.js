@@ -1,6 +1,7 @@
 /* jshint node:true */
 'use strict';
 // generated on 2014-12-21 using generator-gulp-webapp 0.2.0
+
 var Q = require('q');
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
@@ -52,7 +53,6 @@ gulp.task('html', ['styles', 'handlbars', 'markdown'], function () {
     .pipe(assets.restore())
     .pipe($.useref())
 
-    /*
     //CDN the resources
     .pipe(assetpaths({
       newDomain: 'http://np.fin-alg.com',
@@ -61,7 +61,6 @@ gulp.task('html', ['styles', 'handlbars', 'markdown'], function () {
       filetypes : ['jpg','jpeg','png','ico','gif','js','css', 'eot', 'ttf', 'woff'],
       templates: true
     }))
-    */
 
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
