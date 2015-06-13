@@ -88,6 +88,12 @@ Other options for Volume Bars Color Mode are One Color and Gradient
 <img src="/images/faq/show last x days profile.png" width="640" height="388">
       </a>
 
+        <q>How to show VPOC (Volume based Point of Control)</q>
+      <a>
+Set Value Area Calculation type to Volume, see image, if you want to show both you can use the "2nd Value Area" options.
+<img src="/images/faq/vpoc.png" width="706" height="392">
+      </a>
+
       <q>How to make the data box (upper left window) larger</q>
       <a>
 Change the font size of the data box to control the font and data box size, see image
@@ -114,6 +120,21 @@ Rotation Factor - Each letter is given a +1 if it's high is above high of previo
 <img src="/images/faq/mptpocount.png" width="300" height="264">
 
 Total number of letters, and in brackets, above /below the POC.
+      </a>
+
+      <q>How Value Area/POC are calculated</q>
+      <a>
+Three calculation methods are supported,
+
+* TPO is the classic original Steidlmayer method to take the price with the largest amount of TPO (POC) and then go up and down until 68% of the TPO are included
+* Volume is based only on volume, take the price that has the largest volume and do up and down until 68% of the volume is included.
+* VWAP is a more modern calculation that start from [VWAP](http://www.investopedia.com/terms/v/vwap.asp) which is a weighted average of the price based on volume
+<img src="/images/faq/va_calculation.png" width="420" height="400">
+      </a>
+
+      <q>What is HVN/LVN Sensitivity, how to use it?</q>
+      <a>
+Say Sensitivity is 10, To qualify a price level to be HVN volume at price need to be higher then the volume of each of the 10 ticks above it and each of the 10 ticks below it.
       </a>
 
       <q>How do I configure for hourly profile and 3 min TPO Size?</q>
@@ -148,7 +169,7 @@ Any data feed that work with NinjatTrader will be fine for TPOChart
 
       <q>What type of data is needed?</q>
       <a>
-Usually TPOChart need 1 min data, for extra accuracy tot he calculation of the volume profile 1tick data can be used (configurable)
+Usually TPOChart need 1 min data, for extra accuracy tot he calculation of the volume profile 1 tick data can be used (configurable)
       </a>
 
       <q>What is "Use 1 tick data"?</q>
@@ -184,7 +205,7 @@ Yes, you can use TPOChar on up to two PC for the price of one license
       <a>
 * Confirm the installation was working correctly by checking the folder Documents\NinjaTrader 7\bin\Custom and make sure you have a file Final.TPOChart.dll,
   * If not exit NinjaTrader, make sure AntiVirus is disabled and run the installer again.
-  * If still cannot find it check if the dll was installed under different user, in that case try to install again and make sure to install to the correct user or you can just copy the dll to the right user.
+  * If still cannot find it check if the dll was installed under different user, users can be found under "C:\Users\" and you should check each "C:\Users\\[user]\Documents\NinjaTrader 7\bin\Custom" folder for the dll, in that case try to install again and make sure to install to the correct user or you can just copy the dll to the right user.
 * After starting NinjaTrader check the NinjaTrader log and make sure DLL was loaded correctly, look for a line that say "Vendor assembly 'Final.TPOChart' version='4.0.0.22' loaded"
 * Open the indicator list and look for " TPO and Volume Profile Chart (v4)", Notice it should be at the top of the list as there is a leading space to the name.
       </a>

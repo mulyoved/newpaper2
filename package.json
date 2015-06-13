@@ -57,5 +57,8 @@
   },
   "dependencies": {
     "remarkable": "^1.6.0"
+  },
+  "scripts": {
+    "publish": "gulp deploy"
   }
 }

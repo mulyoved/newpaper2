@@ -600,7 +600,7 @@ module.exports = function (grunt) {
           authKey: 'key1'
         },
         src: 'D:/js/newpaper2/dist',
-        dest: '/newpaper.fin-alg.com/web/content',
+        dest: '/www.fin-alg.com/web/content',
         simple: true,
         useList: false
       }

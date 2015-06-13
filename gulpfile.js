@@ -347,7 +347,7 @@ gulp.task('deploy', function() {
 
 gulp.task('deploy-cdn', function() {
   var options = {
-    //delay: 1000, // optional delay each request by x milliseconds, default is 0
+    delay: 1000, // optional delay each request by x milliseconds, default is 0
     headers: {
       'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
       'Access-Control-Allow-Origin': '*'
@@ -362,7 +362,7 @@ gulp.task('deploy-cdn', function() {
 gulp.task('sitemap', ['handlbars', 'markdown'], function () {
   gulp.src('.tmp/**/*.html')
     .pipe(sitemap({
-      siteUrl: 'http://newpaper.fin-alg.com/'
+      siteUrl: 'http://www.fin-alg.com/'
     }))
     .pipe(gulp.dest('dist'));
 });

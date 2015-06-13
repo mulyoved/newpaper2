@@ -5,7 +5,7 @@ set //$assetPath : "/fonts/"; in main.scss
 
 Check Speed
 https://developers.google.com/speed/pagespeed/insights/
-sitespeed.io -u http://newpaper.fin-alg.com/
+sitespeed.io -u http://www.fin-alg.com/
 
 
 Hold todo: 
