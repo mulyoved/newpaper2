@@ -1,0 +1,316 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title" content="Financial Algorithms, NinjaTrader and other programming services">
+  <meta name="description" content="Final, Financial Algorithms, programming services for hedge funds and retail traders, NinjaTrader and others">
+  <meta name="keywords" content="Financial Algorithms,Final,Trading,Stock,Futures,Forex,NinjaTrader,TradeStation,eSignal,MetaTrader,MarketProfile,MaketBalance,Volume Footprint,TPO,Value Area,POC,Automatic Strategies,Programming,Indicators,Strategies">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <meta name="author" content="Muly Oved">
+  <title>Financial Algorithms</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../bower_components/photoswipe/dist/photoswipe.css" />
+    <link rel="stylesheet" href="../bower_components/photoswipe/dist/default-skin/default-skin.css" />
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="images/hamburger.svg" alt="Menu"></button>
+    <!-- <h1 class="logo">Web <strong>Starter Kit</strong></h1> -->
+    <div class="logo-image-text">
+      <img class="logo-image" src="images/logo/Logo_final_white.svg" alt="Final Financial Algorithms logo">
+      <p>Software Tools and Services for <strong>Traders</strong></p>
+    </div>
+    <section class="app-bar-actions">
+      <!-- Put App Bar Buttons Here -->
+      <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <!-- <li><a href="#get-started">News</a></li> -->
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/products.html">Products</a></li>
+    <li><a href="/partners.html">Partners</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="marketbalance-guide"><h1 id="marketbalance-indicator-for-ninjatrader">MarketBalance Indicator for NinjaTrader</h1>
+  <h2 id="1-overview">1. Overview</h2>
+  <p>The MarketBalance indicator is the second major ‘market view’ indicator written by Final for the NinjaTrader environment. The first, (TPO Chart) offers a complete Market Profile view and has been adopted by many NinjaTrader users interested in applying this well known approach to their trading.</p>
+  <p>With the addition of MarketBalance, NinjaTrader users now have access to a comprehensive set of ‘views’ for Bid/Ask and volume at price analysis. It can be used on any version of NinjaTrader on any instruments for which intraday Bid/Ask price and volume information is available.</p>
+  <p>MarketBalance can be applied to any intraday interval setting for NinjaTrader chart types Tick, Volume and Minute.</p>
+  <h2 id="2-features-overview">2. Features Overview</h2>
+  <p>MarketBalance incorporates the following; </p>
+  <h3 id="volume-at-price-views-">Volume at price views;</h3>
+  <ul>
+  <li><p>Bid/Ask</p>
+  </li>
+  <li><p>Bid/Ask Ladder</p>
+  </li>
+  <li><p>Delta</p>
+  </li>
+  <li><p>Graduated Volume</p>
+  </li>
+  <li><p>Delta Colored Volume</p>
+  </li>
+  <li><p>High/Low Volume</p>
+  </li>
+  <li><p>Volume Histogram</p>
+  </li>
+  </ul>
+  <h3 id="totals-per-bar-">Totals (per bar)</h3>
+  <ul>
+  <li><p>Ask</p>
+  </li>
+  <li><p>Bid</p>
+  </li>
+  <li><p>Delta</p>
+  </li>
+  <li><p>Max Delta</p>
+  </li>
+  <li><p>Min Delta</p>
+  </li>
+  <li><p>Cumulative Delta</p>
+  </li>
+  <li><p>Cumulative Delta/Cumulative Volume %</p>
+  </li>
+  <li><p>Volume</p>
+  </li>
+  <li><p>Cumulative Volume</p>
+  </li>
+  </ul>
+  <h3 id="totals-per-price-per-session-">Totals (per price per session)</h3>
+  <ul>
+  <li><p>Volume</p>
+  </li>
+  <li><p>Bid/Ask Histogram</p>
+  </li>
+  <li><p>Price Ladder</p>
+  </li>
+  </ul>
+  <h3 id="candle-body">Candle Body</h3>
+  <ul>
+  <li>Highlights Open/Close of overall bar </li>
+  </ul>
+  <h3 id="action-bar">Action Bar</h3>
+  <ul>
+  <li>A bar which operates independently bar to the right of the current bar to portray immediate price action in two ways in any of the MarketBalance views</li>
+  </ul>
+  <h3 id="delta-calculation-type-by">Delta Calculation Type by</h3>
+  <ul>
+  <li><p>Bid/Ask</p>
+  </li>
+  <li><p>UpTick/DownTick</p>
+  </li>
+  </ul>
+  <h3 id="trading">Trading</h3>
+  <ul>
+  <li>Integrates with Chart Trader al owing direct trading from a MarketBalance chart for Live Trading Versions of NinjaTrader (on any symbol that has ful Bid/Ask price and volume data available) More detail is provided in Features Description below.</li>
+  </ul>
+  <h2 id="3-installation-trial-subscription">3. Installation, Trial, Subscription</h2>
+  <p>MarketBalance is available for a 14 day free trial. It can be downloaded from this link</p>
+  <p><a href="http://www.fin-alg.com/downloads/MarketBalance/MarketBalance_setup.exe">MarketBalance_setup</a></p>
+  <ul>
+  <li><p>Once the download is complete ensure NinjaTrader is closed.</p>
+  </li>
+  <li><p>Double click on MarketBalance_setup.exe and fol ow the prompts.</p>
+  </li>
+  <li><p>When the instal ation has completed, restart NinjaTrader and check that ‘Market Balance’ appears at or near the top of the Indicators list.</p>
+  </li>
+  <li><p>During the trial a Licence dialog popup will appear to facilitate subscription.</p>
+  </li>
+  <li><p>Subscription requires the Machine ID which can be copied from NinjaTrader; Control Center &gt; Help &gt; About. The Machine ID is on the third line.</p>
+  </li>
+  </ul>
+  <h2 id="4-important-note">4. Important Note</h2>
+  <p>MarketBalance operates within the real-time NinjaTrader environment.</p>
+  <p>NinjaTrader does not save price Bid/Ask volume data to its database, therefore this history is not accessible for MarketBalance to load. So, MarketBalance</p>
+  <p>also functions on real-time data and does not plot any values for historical data. Data will only be captured within MarketBalance when NinjaTrader is open and connected to a real-time feed.</p>
+  <p>This also means that if any chart interval or indicator parameter (except as mentioned below in 6. Features &gt; Selection Methods) is changed, then any accumulated real-time plots wil be lost. It is suggested, that after experimentation to get the desired MarketBalance parameter setup, a template is saved.</p>
+  <h2 id="5-history-future">5. History - Future</h2>
+  <p>Sometime soon after the next major release of Ninjatrader (v6.5), scheduled for late fal 2007, it may be possible that MarketBalance wil offer limited re-loadable History based on a modified use of the Market Replay Recorder facility.</p>
+  <h2 id="6-features-description">6. Features Description</h2>
+  <p>Here are descriptions of the main MarketBalance features.</p>
+  <h3 id="delta-calculation">Delta Calculation</h3>
+  <p>Delta is defined as the difference between the Buying volume and the Selling volume.</p>
+  <p>There are two ways it can be calculated: </p>
+  <p><strong>Bid/Ask</strong> – Delta can be calculated based on trades occurring at Bid or Ask, as fol ows:</p>
+  <ol>
+  <li><p>If trade at Ask then trade direction is up &amp; Volume = Buy.</p>
+  </li>
+  <li><p>If trade at Bid then trade direction is down &amp; Volume = Sel .</p>
+  </li>
+  </ol>
+  <p><strong>Up Tick/Down Tick</strong> - Delta can be calculated based on price continuing to tick up or down, as fol ows:</p>
+  <ol>
+  <li><p>If Ask &gt; Last Ask then trade direction is up &amp; Volume = Buy.</p>
+  </li>
+  <li><p>If Bid &lt; Last Bid then trade direction is down &amp; Volume = Sel Else Volume = last trade direction.</p>
+  </li>
+  </ol>
+  <h3 id="action-bar">Action Bar</h3>
+  <p>The Action Bar is an optional bar that can be displayed to the right of the last normal chart bar and that can be run by a set of rules independently from the main MarketBalance Bars of the chart.</p>
+  <p>It can be displayed in any of the MarketBalance Views as described below. .</p>
+  <p>It has two rule sets that are unique to it, as follows: </p>
+  <p><img src="/images/marketbalance_guide/Page-3-Image-1.png" alt="Action Bar"></p>
+  <p><strong>Pullback</strong> – in Pull back mode, the Action Bar is reset every time the current MarketBalance bar makes a new high or low. If price continues to tick lower the Action Bar wil be reset at each new low. Then as price moves off the low, the Action Bar wil build, so showing the conviction of buyers to drive price away from the low. In this scenario, the Action Bar wil continue to build until: </p>
+  <ol>
+  <li><p>The low is broken again</p>
+  </li>
+  <li><p>A new (bar) high is made</p>
+  </li>
+  <li><p>Or a new bar is started on the chart </p>
+  </li>
+  </ol>
+  <p>Any of these events wil cause the Action Bar to be reset.</p>
+  <p><strong>Continuation Bar</strong> – in Continuation mode, the Action Bar wil display the last x price levels (default of 5) independently of the current MarketBalance bar. It wil maintain a constant number of price levels, so if price is ticking up, the Action Bar wil move up to the new high and its previous lowest price wil be dropped. Thus the Action Bar wil ‘slide’ up and down the current bar showing the immediate volume at each level of price action.</p>
+  <p>The Action Bar wil continue to build until: </p>
+  <ol>
+  <li><p>Price ticks above its current high, when its lowest price will be dropped.</p>
+  </li>
+  <li><p>Price ticks below its current low, then its highest price wil be dropped.</p>
+  </li>
+  </ol>
+  <p>In Continuation mode the Action Bar will not be reset with each new MarketBalance bar.</p>
+  <p>Because it does not reset with each new bar, it is possible to use this mode of the Action Bar to capture longer term Accumulation or Distribution. By changing the default setting for say ES, to 12 (3 points) a much clearer view of what is happening during periods of consolidation can be gained.</p>
+  <p>In situations where price might be rotating in a fairly narrow range a setting ES of 12 (or larger if preferred) for ES as an example, can show in a single bar that might cover 2 - 3 hours, what the building market condition is. That in turn may communicate what the likely breakout direction could be.</p>
+  <p>Experiment with settings using either live data or Market Replay to gain an understanding of larger Continuation Bar setting may be used.</p>
+  <h3 id="marketbalance-views">MarketBalance Views</h3>
+  <p>There are 7 different ways to View the MarketBalance bar. In each View, individual prices are color graduated based on either higher or lower volume or delta; </p>
+  <p><strong>Bid x Ask</strong> – displays the trades occurring at the Bid and Ask at each price point within the MarketBalance bar. The Highest Volume price has a heavier box outline.</p>
+  <p><img src="/images/marketbalance_guide/Page-4-Image-2.png" alt="Action Bar"></p>
+  <p><strong>Bid/Ask Ladder</strong> – displays to the Bid x Ask except more compact and where the side that has the Highest Volume is colored and bolded to highlight it to al ow for quick visual identification of directional price runs. The Highest Volume price has a heavier box outline on either the Bid or Ask side of the ladder.</p>
+  <p><img src="/images/marketbalance_guide/Page-4-Image-3.png" alt="Action Bar"></p>
+  <p><strong>Delta</strong> – displays the net of Sel – Buy volume transactions at each price. The Highest Delta price has a heavier box outline.</p>
+  <p><img src="/images/marketbalance_guide/Page-5-Image-4.png" alt="Action Bar"></p>
+  <p><strong>Graduated Volume</strong> – displays the volume at each price color graduated to al ow for easy visual differentiation lower and higher volume prices. The Highest Volume price has a heavier box outline.</p>
+  <p><img src="/images/marketbalance_guide/Page-5-Image-5.png" alt="Action Bar"></p>
+  <p><strong>Delta Colored Volume</strong> – displays the volume at each price colored graduated by higher or lower Delta. The Highest Volume price has a heavier box outline.</p>
+  <p><img src="/images/marketbalance_guide/Page-5-Image-6.png" alt="Action Bar"></p>
+  <p><strong>High/Low Volume</strong> – displays the volume at each price with just the regions of high(er) and low(er) volume colored. The Highest Volume price has a heavier box outline.</p>
+  <p><img src="/images/marketbalance_guide/Page-5-Image-7.png" alt="Action Bar"></p>
+  <p><strong>Volume Histogram</strong> – displays the volume at each price as a Histogram with coloring graduated by higher or lower Delta. The Highest Volume price has a heavier box outline.</p>
+  <p><img src="/images/marketbalance_guide/Page-6-Image-8.png" alt="Action Bar"></p>
+  <h3 id="highest-volume-highlight">Highest Volume Highlight</h3>
+  <p>For every Action Bar and MarketBalance bar, regardless of View, the price with the highest volume (or delta for the Delta view) is highlighted with a heavier surround box.</p>
+  <h3 id="information-totals">Information Totals</h3>
+  <p>There are two sets of totals displays available within MarketBalance, on the left side and at the bottom of the chart.</p>
+  <p><strong>Left Side</strong> – has 3 elements</p>
+  <ul>
+  <li><p>Price ladder</p>
+  </li>
+  <li><p>Volume total at each price level</p>
+  </li>
+  <li><p>Volume Histogram with volume at Ask and Bid color splits </p>
+  </li>
+  </ul>
+  <p>Any combination or al of these can be displayed.</p>
+  <p><img src="/images/marketbalance_guide/Page-6-Image-9.png" alt="Action Bar"></p>
+  <p><strong>Bottom</strong> – has 9 elements and displays totals for each MarketBalance Bar * Ask – total Ask Volume in the bar.</p>
+  <ul>
+  <li><p>Bid – total Bid Volume in the bar.</p>
+  </li>
+  <li><p>Delta – the difference between Ask and Bid volume.</p>
+  </li>
+  <li><p>Max Delta – the maximum Delta reached within the bar.</p>
+  </li>
+  <li><p>Min Delta – the minimum Delta reached within the bar.</p>
+  </li>
+  <li><p>Cum Delta – the accumulation of Delta across the session (as set by either Chart properties or within Parameters &gt; Session Times).</p>
+  </li>
+  <li><p>Cum Delta/Cum Volume – a percentage of the overal Delta across the session.</p>
+  </li>
+  <li><p>Volume – the total volume within the bar.</p>
+  </li>
+  <li><p>Cum Volume – the accumulation of volume across the session.</p>
+  </li>
+  </ul>
+  <p>Any combination or al of these can be displayed. Al but Max and Min Delta are also displayed for the Action Bar.</p>
+  <p><img src="/images/marketbalance_guide/Page-7-Image-10.png" alt="Action Bar"></p>
+  <h3 id="selection-methods">Selection Methods</h3>
+  <p>There 3 ways available to select Action Bar and MarketBalance View type and the Information Totals;</p>
+  <p><strong>Parameters</strong> – normal y these would be used to set up the preferred default views, then saved as a template. Note that changing any indicator parameter wil refresh the chart and all accumulated Bid/Ask data will be lost.</p>
+  <p><img src="/images/marketbalance_guide/Page-8-Image-11.png" alt="Action Bar"></p>
+  <p><strong>Dropdown Menus</strong> – 3 menus have been added to the toolbar, the first and second al ows View Type selection for the MarketBalance and Actions bars respectively, while the last al ows tick box selection of any or al of the Totals. Note that changing any View or Totals option via the Dropdown menus does not refresh the chart and so accumulated Bid/Ask data is not lost.</p>
+  <p><img src="/images/marketbalance_guide/Page-9-Image-12.png" alt="Action Bar"></p>
+  <p><strong>Right Click Chart Context menu</strong> – once done three options, MarketBalance View Type, Action Bar View Type and Totals will be seen at the top of the menu list.</p>
+  <p><img src="/images/marketbalance_guide/Page-9-Image-13.png" alt="Action Bar"></p>
+  <p>Note that changing any View or Totals option via the Context menu <strong>does not</strong> refresh the chart and so accumulated Bid/Ask data is <strong>not lost</strong>.</p>
+  <p>Note that with either of the second two methods changing the MarketBalance View will automaticaly change the Action Bar View as well. Then use the Action Bar menus if a different view is wanted for it.</p>
+  <h2 id="marketbalance-parameters">MarketBalance Parameters</h2>
+  <p>Once the MarketBalance has been installed, open a new NinjaTrader chart and select MarketBalance from the Indicator list. It wil appear as MarketBalance at or near the top of the Indicators List.</p>
+  <p>Below, the selections under Parameters are (where required) described.</p>
+  <h3 id="action-bar">Action Bar</h3>
+  <p>Used to set Action Bar Parameters;</p>
+  <p><strong>Action Bar Default View</strong> – sets the Action Bar default View.</p>
+  <p><strong>Action Bar Type</strong> – sets the Action Bar to either Pul back or Continuation.</p>
+  <p><strong>Continuation Bar Size</strong> – sets the Action Bar height in ticks (Continuation mode only) Show Action Bar – set to false to disable the bar.</p>
+  <h3 id="cells">Cells</h3>
+  <p>Used to select Delta calculation type and Prices per row; </p>
+  <p><strong>Delta Calculation</strong> – sets the way Delta is calculated (refer to Features Description above).</p>
+  <p><strong>Prices Per Row</strong> – this would normal y be left at 1, however, if a Symbol has an extremely large range, increase the Prices per row to condense it.</p>
+  <h3 id="display-colors">Display – Colors</h3>
+  <p>These are self-explanatory.</p>
+  <h3 id="display-controls">Display – Controls</h3>
+  <p>These are self-explanatory.</p>
+  <h3 id="general">General</h3>
+  <p>Standard NinjaTrader inclusions.</p>
+  <h3 id="left-area">Left Area</h3>
+  <p>Used to select which of left side chart Totals are displayed as defaults.</p>
+  <h3 id="session-times">Session Times</h3>
+  <p>Used (only) to control when the Totals fields reset to begin a new session. The parameter can be used for any symbol that has trading which extends either side of its main session, or has session times that cross a date.</p>
+  <p>Note this parameter does not override the Session Begins/Ends settings within Chart Properties, nor does it control the bars shown on a chart.</p>
+  <h3 id="totals">Totals</h3>
+  <p>Used to select which of the bottom of chart Totals are set as defaults.</p>
+  <p><strong>Once all parameters have been set it is suggested that these are saved as a Template for easy application to other charts.</strong></p>
+  <h2 id="support">Support</h2>
+  <p>Any support issues and problem reporting can be sent to financial.algorithms@gmail.com</p>
+  <p>with MarketBalance in the subject line.</p>
+  <!--
+  <h2 id="education">Education</h2>
+  <p>The Institute Of Auction Market Theory provides trading and training room specialising in Market Profile and Volume At Price interpretation and application.</p>
+  <p>There is also a link on the site to sign up for a free daily market recap for the e-mini S&amp;P 500, which Institute founder Bil Duryea comprehensively describes the days action in Auction Market Theory terms.</p>
+  <p><a href="www.ioamt.com">IOAMT</a></p>
+  -->
+  </div>
+  </main>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-58077532-1');ga('send','pageview');
+</script>
+
+<!-- build:js scripts/main.js -->
+<script src="../bower_components/photoswipe/dist/photoswipe.js"></script>
+<script src="../bower_components/photoswipe/dist/photoswipe-ui-default.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/photoswipe.js"></script>
+<!-- endbuild -->
+</body>
+</html>

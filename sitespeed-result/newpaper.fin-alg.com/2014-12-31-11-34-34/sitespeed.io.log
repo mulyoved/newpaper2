@@ -1,0 +1,22 @@
+2014-12-31T09:34:35.587Z - info: [sitespeed] OS: win32 6.1.7601 sitespeed:3.0.2  phantomJs:1.9.8 java:java version "1.7.0_55" browsertime:0.8.19
+2014-12-31T09:34:35.630Z - info: [sitespeed] Will crawl from start point http://newpaper.fin-alg.com/ with crawl depth 1
+2014-12-31T09:34:38.013Z - info: [sitespeed] Will analyze 5 pages
+2014-12-31T09:34:38.015Z - info: [sitespeed] Running YSlow for http://newpaper.fin-alg.com/
+2014-12-31T09:34:38.027Z - info: [sitespeed] Running YSlow for http://newpaper.fin-alg.com/products.html
+2014-12-31T09:34:38.036Z - info: [sitespeed] Running YSlow for http://newpaper.fin-alg.com/partners.html
+2014-12-31T09:34:38.046Z - info: [sitespeed] Running YSlow for http://newpaper.fin-alg.com/contact.html
+2014-12-31T09:34:38.058Z - info: [sitespeed] Running YSlow for http://newpaper.fin-alg.com/services.html
+2014-12-31T09:34:58.188Z - info: [sitespeed] Done analyzing urls
+2014-12-31T09:34:58.274Z - info: [sitespeed] Wrote file hotlist.html
+2014-12-31T09:34:58.275Z - info: [sitespeed] Wrote file errors.html
+2014-12-31T09:34:58.276Z - info: [sitespeed] Wrote file rules.html
+2014-12-31T09:34:58.280Z - info: [sitespeed] Wrote file index.html
+2014-12-31T09:34:58.281Z - info: [sitespeed] Wrote file pages.html
+2014-12-31T09:34:58.281Z - info: [sitespeed] Wrote file assets.html
+2014-12-31T09:34:58.282Z - info: [sitespeed] Wrote file newpaper.fin-alg.com.html
+2014-12-31T09:34:58.283Z - info: [sitespeed] Wrote file detailed-site-summary.html
+2014-12-31T09:34:58.283Z - info: [sitespeed] Wrote file newpaper.fin-alg.com-contact.html.html
+2014-12-31T09:34:58.283Z - info: [sitespeed] Wrote file newpaper.fin-alg.com-partners.html.html
+2014-12-31T09:34:58.284Z - info: [sitespeed] Wrote file newpaper.fin-alg.com-services.html.html
+2014-12-31T09:34:58.284Z - info: [sitespeed] Wrote file newpaper.fin-alg.com-products.html.html
+2014-12-31T09:34:58.297Z - info: [sitespeed] Wrote results to d:\js\newpaper2\sitespeed-result\newpaper.fin-alg.com\2014-12-31-11-34-34

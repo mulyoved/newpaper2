@@ -1,0 +1,306 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title" content="Financial Algorithms, NinjaTrader and other programming services">
+  <meta name="description" content="Final, Financial Algorithms, programming services for hedge funds and retail traders, NinjaTrader and others">
+  <meta name="keywords" content="Financial Algorithms,Final,Trading,Stock,Futures,Forex,NinjaTrader,TradeStation,eSignal,MetaTrader,MarketProfile,MaketBalance,Volume Footprint,TPO,Value Area,POC,Automatic Strategies,Programming,Indicators,Strategies">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <meta name="author" content="Muly Oved">
+  <title>Financial Algorithms</title>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../bower_components/photoswipe/dist/photoswipe.css" />
+    <link rel="stylesheet" href="../bower_components/photoswipe/dist/default-skin/default-skin.css" />
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="images/hamburger.svg" alt="Menu"></button>
+    <!-- <h1 class="logo">Web <strong>Starter Kit</strong></h1> -->
+    <div class="logo-image-text">
+      <img class="logo-image" src="images/logo/Logo_final_white.svg" alt="Final Financial Algorithms logo">
+      <p>Software Tools and Services for <strong>Traders</strong></p>
+    </div>
+    <section class="app-bar-actions">
+      <!-- Put App Bar Buttons Here -->
+      <!-- e.g <button><i class="icon icon-star"></i></button> -->
+    </section>
+  </div>
+</header>
+
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <!-- <li><a href="#get-started">News</a></li> -->
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/products.html">Products</a></li>
+    <li><a href="/partners.html">Partners</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="container">
+      <h2>TPO and Volume Profile Chart Frequently Asked Questions</h2>
+  
+      <div class="togglebox">
+  
+      <a name="faq1"></a><input id="toggle1" type="radio" name="toggle"><label for="toggle1">How do I manually split and merge profiles</label>
+      <section><p>Use the chart context menu (right mouse click)</p>
+  <p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/tposplitandunplit.jpg" data-size="1038x762" class="screenshot-gallery__img--main"><img src="/images/faq/tposplitandunplit.jpg" alt="" width="480" height="352"><figure>How do I manually split and merge profiles</figure></a></div></p>
+  </section>
+  
+      <a name="faq2"></a><input id="toggle2" type="radio" name="toggle"><label for="toggle2">How do I split the profile for day and night sessions</label>
+      <section><p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/sessionmanager.png" data-size="936x578" class="screenshot-gallery__img--main"><img src="/images/faq/sessionmanager.png" alt="" width="400" height="247"><figure>How do I split the profile for day and night sessions</figure></a></div></p>
+  <p>To configure the session times and optionally split the profile for day and night session, use the new NT7 session manager to configure the sessions times.</p>
+  <p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/selectsessiontemplate.png" data-size="816x724" class="screenshot-gallery__img--main"><img src="/images/faq/selectsessiontemplate.png" alt="" width="400" height="355"><figure>How do I split the profile for day and night sessions</figure></a></div></p>
+  <p>use this session template when you open the chart, TPOChart will use the session information and will build a profile for each session</p>
+  <p>For example, in the session manger you can configure those sessions</p>
+  <p>Sunday 4:16 PM to Monday 9:30 AM</p>
+  <p>Monday 9:30 AM to Monday 4:15 PM</p>
+  <p>Monday 4:16 PM to Tuesday 9:30 AM</p>
+  <p>And so on</p>
+  <p>To test this open a normal 10 min chart, make sure you get the correct sessions, The add the TPOChart indicator to the chart and set Show Bars = True so you can see the exact bars of each session.</p>
+  </section>
+  
+      <a name="faq3"></a><input id="toggle3" type="radio" name="toggle"><label for="toggle3">How to turn off the TPO display and only have the Volume profile on the charts?</label>
+      <section><p>Set parameter #02 Show TPO = False<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/hide_tpo2.png" data-size="1030x756" class="screenshot-gallery__img--main"><img src="/images/faq/hide_tpo2.png" alt="" width="400" height="294"><figure>How to turn off the TPO display and only have the Volume profile on the charts?</figure></a></div></p>
+  </section>
+  
+        <a name="faq4"></a><input id="toggle4" type="radio" name="toggle"><label for="toggle4">How to display a profile for specific date range?</label>
+        <section><p>This is not directly supported but you can:</p>
+  <ul>
+  <li>Display long term profiles like weekly/monthly/yearly profiles (See paramter Session Type)</li>
+  <li>Display profile for say 180 days back (paramter Session Type = DaysBack and Session Value = 180)</li>
+  <li>Merge profiles manually</li>
+  </ul>
+  <p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/daysback.png" data-size="1033x776" class="screenshot-gallery__img--main"><img src="/images/faq/daysback.png" alt="" width="400" height="301"><figure>How to display a profile for specific date range?</figure></a></div></p>
+  </section>
+  
+        <a name="faq5"></a><input id="toggle5" type="radio" name="toggle"><label for="toggle5">How to scale the graphic/scroll vertically?</label>
+        <section><p>To Scroll, use Ctrl-Click on the right side price panel and drag the mouse to reposition</p>
+  <p>To resize you can click on the right side price panel and drag to change the scale.</p>
+  <p>A box with an &quot;F&quot; (Fixed) will appear in the upper right corner of the chart margin anytime the vertical chart axis is manually adjusted. This signifies the chart axis is set to a &quot;fixed&quot; scale. Left mouse click this button to return to auto scale.</p>
+  <p>Also to control how many ticks each letter represent you can modify the value of &quot;Prices per Row (Ticks)&quot; try set it to 4 or 10 this can help to better fit the letters into the chart.</p>
+  </section>
+  
+        <a name="faq6"></a><input id="toggle6" type="radio" name="toggle"><label for="toggle6">How to make the bars plot above the profiles so the profile does not hide the bars</label>
+        <section><p>On the indicator properties set &quot;01: Show Bars&quot; = True</p>
+  <p>Then to configure the normal chart bars to plot above the profiles you need to change the Z Order of the bars, to do it:</p>
+  <p>Make sure the bars are selectable, got to chart properties (Ctrl-T) and set &quot;Allow the selection or drag/drop of chart series&quot; = true</p>
+  <p>Select the bars by click on them</p>
+  <p>Use the Shift and Mouse scroll wheel to change the bars Z order until they plot above the graphics<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/zorder3.png" data-size="1027x646" class="screenshot-gallery__img--main"><img src="/images/faq/zorder3.png" alt="" width="544" height="342"><figure>How to make the bars plot above the profiles so the profile does not hide the bars</figure></a></div></p>
+  </section>
+  
+        <a name="faq7"></a><input id="toggle7" type="radio" name="toggle"><label for="toggle7">Customized The Volume Histogram Colors</label>
+        <section><p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/paint colored volume histogram.png" data-size="1177x755" class="screenshot-gallery__img--main"><img src="/images/faq/paint colored volume histogram.png" alt="" width="640" height="402"><figure>Customized The Volume Histogram Colors</figure></a></div></p>
+  <p>Other options for Volume Bars Color Mode are One Color and Gradient<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/gradient colors.png" data-size="1033x761" class="screenshot-gallery__img--main"><img src="/images/faq/gradient colors.png" alt="" width="640" height="472"><figure>Customized The Volume Histogram Colors</figure></a></div></p>
+  </section>
+  
+        <a name="faq8"></a><input id="toggle8" type="radio" name="toggle"><label for="toggle8">How to show "x Days Back" profile at the right or left of the chart</label>
+        <section><p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/show last x days profile.png" data-size="1493x906" class="screenshot-gallery__img--main"><img src="/images/faq/show last x days profile.png" alt="" width="640" height="388"><figure>How to show &quot;x Days Back&quot; profile at the right or left of the chart</figure></a></div></p>
+  </section>
+  
+        <a name="faq9"></a><input id="toggle9" type="radio" name="toggle"><label for="toggle9">How to make the data box (upper left window) larger</label>
+        <section><p>Change the font size of the data box to control the font and data box size, see image<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/tpodataboxsize.png" data-size="1138x815" class="screenshot-gallery__img--main"><img src="/images/faq/tpodataboxsize.png" alt="" width="480" height="344"><figure>How to make the data box (upper left window) larger</figure></a></div></p>
+  </section>
+  
+        <a name="faq10"></a><input id="toggle10" type="radio" name="toggle"><label for="toggle10">Some days data is missing, what can be done?</label>
+        <section><p>TPOChart is based on NinjaTrader data, to analyze the problem:</p>
+  <ul>
+  <li>Open new normal 10 min chart, make sure you get all the data if not, use the chart context menu to realod history</li>
+  <li>Add the TPOChart Indicator to the chart, don&apos;t use the template, just add the indicator to the chart</li>
+  <li>Set Show Bars (Overlay) = True, this will show the chart bars, see if you still get all the bars for the missing days</li>
+  </ul>
+  </section>
+  
+        <a name="faq11"></a><input id="toggle11" type="radio" name="toggle"><label for="toggle11">What is Rotation Factor?</label>
+        <section><p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/mprotationfactor.png" data-size="417x367" class="screenshot-gallery__img--main"><img src="/images/faq/mprotationfactor.png" alt="" width="340" height="299"><figure>What is Rotation Factor?</figure></a></div></p>
+  <p>Rotation Factor - Each letter is given a +1 if it&apos;s high is above high of previous letter, and a -1 if it&apos;s high is below high of previous letter. In addition, a +1 or -1 is added based on whether the low was above or below the previous low. Each letters RF (anywhere from -2 to +2) is summed to provide the RF of the profile.</p>
+  </section>
+  
+        <a name="faq12"></a><input id="toggle12" type="radio" name="toggle"><label for="toggle12">What is TPO Count numbers in the data box?</label>
+        <section><p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/mptpocount.png" data-size="417x367" class="screenshot-gallery__img--main"><img src="/images/faq/mptpocount.png" alt="" width="300" height="264"><figure>What is TPO Count numbers in the data box?</figure></a></div></p>
+  <p>Total number of letters, and in brackets, above /below the POC.</p>
+  </section>
+  
+        <a name="faq13"></a><input id="toggle13" type="radio" name="toggle"><label for="toggle13">How do I configure for hourly profile and 3 min TPO Size?</label>
+        <section><p><div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/3minTPOSize.png" data-size="1284x817" class="screenshot-gallery__img--main"><img src="/images/faq/3minTPOSize.png" alt="" width="480" height="305"><figure>How do I configure for hourly profile and 3 min TPO Size?</figure></a></div></p>
+  </section>
+  
+        <a name="faq14"></a><input id="toggle14" type="radio" name="toggle"><label for="toggle14">Change letter color</label>
+        <section><p>Right now letters colors are hard coded, can change all of them to diffrent color or use the predefined color schema, to change:<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/tpochangelettercolor.png" data-size="1031x825" class="screenshot-gallery__img--main"><img src="/images/faq/tpochangelettercolor.png" alt="" width="480" height="385"><figure>Change letter color</figure></a></div></p>
+  </section>
+  
+        <a name="faq15"></a><input id="toggle15" type="radio" name="toggle"><label for="toggle15">How to build a profile “from a start date”?</label>
+        <section><p>Set session Type = Date</p>
+  <p>Set Start Date<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/tpoprofilefromdate.png" data-size="1088x844" class="screenshot-gallery__img--main"><img src="/images/faq/tpoprofilefromdate.png" alt="" width="480" height="372"><figure>How to build a profile &#x201C;from a start date&#x201D;?</figure></a></div></p>
+  </section>
+  
+        <a name="faq16"></a><input id="toggle16" type="radio" name="toggle"><label for="toggle16">How to use with EOD (Daily) data?</label>
+        <section><p>See image for recommended setup<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/tpowithdailychart.png" data-size="1568x764" class="screenshot-gallery__img--main"><img src="/images/faq/tpowithdailychart.png" alt="" width="640" height="312"><figure>How to use with EOD (Daily) data?</figure></a></div></p>
+  </section>
+  
+        <a name="faq17"></a><input id="toggle17" type="radio" name="toggle"><label for="toggle17">Will TPOChart will work with my data feed?</label>
+        <section><p>Any data feed that work with NinjatTrader will be fine for TPOChart</p>
+  </section>
+  
+        <a name="faq18"></a><input id="toggle18" type="radio" name="toggle"><label for="toggle18">What type of data is needed?</label>
+        <section><p>Usually TPOChart need 1 min data, for extra accuracy tot he calculation of the volume profile 1tick data can be used (configurable)</p>
+  </section>
+  
+        <a name="faq19"></a><input id="toggle19" type="radio" name="toggle"><label for="toggle19">What is "Use 1 tick data"?</label>
+        <section><p>Can be used to get more accurate volume profile, does not recommended as it take more CPU and the difference in the volume calculation is not significant</p>
+  </section>
+  
+        <a name="faq20"></a><input id="toggle20" type="radio" name="toggle"><label for="toggle20">Where I can find the latest version?</label>
+        <section><p>Latest version can always be found in <a href="/products.html">Products</a> page</p>
+  </section>
+  
+        <a name="faq21"></a><input id="toggle21" type="radio" name="toggle"><label for="toggle21">Can I can get notifications on new versions?</label>
+        <section><p>Updates notifications are posted to this <a href="https://www.facebook.com/pages/Final-Financial-Algorithms/101355999958273">Facebook Page</a></p>
+  </section>
+  
+        <a name="faq22"></a><input id="toggle22" type="radio" name="toggle"><label for="toggle22">How do I check which version I have?</label>
+        <section><p>On the Installer when installing the package<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/TPOChartInstallerVersion.png" data-size="516x401" class="screenshot-gallery__img--main"><img src="/images/faq/TPOChartInstallerVersion.png" alt="" width="418" height="325"><figure>How do I check which version I have?</figure></a></div></p>
+  <p>On NinjaTrader log<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/TPOChartVersion.png" data-size="925x192" class="screenshot-gallery__img--main"><img src="/images/faq/TPOChartVersion.png" alt="" width="612" height="127"><figure>How do I check which version I have?</figure></a></div></p>
+  </section>
+  
+        <a name="faq23"></a><input id="toggle23" type="radio" name="toggle"><label for="toggle23">I have two PC can I install TPOChart on both using one license?</label>
+        <section><p>Yes, you can use TPOChar on up to two PC for the price of one license</p>
+  </section>
+  
+        <a name="faq24"></a><input id="toggle24" type="radio" name="toggle"><label for="toggle24">Downloaded and installed TPOChart, cannot find it in my indicator list</label>
+        <section><ul>
+  <li>Confirm the installation was working correctly by checking the folder Documents\NinjaTrader 7\bin\Custom and make sure you have a file Final.TPOChart.dll,
+  <ul>
+  <li>If not exit NinjaTrader, make sure AntiVirus is disabled and run the installer again.</li>
+  <li>If still cannot find it check if the dll was installed under different user, in that case try to install again and make sure to install to the correct user or you can just copy the dll to the right user.</li>
+  </ul></li>
+  <li>After starting NinjaTrader check the NinjaTrader log and make sure DLL was loaded correctly, look for a line that say &quot;Vendor assembly &apos;Final.TPOChart&apos; version=&apos;4.0.0.22&apos; loaded&quot;</li>
+  <li>Open the indicator list and look for &quot; TPO and Volume Profile Chart (v4)&quot;, Notice it should be at the top of the list as there is a leading space to the name.</li>
+  </ul>
+  </section>
+  
+        <a name="faq25"></a><input id="toggle25" type="radio" name="toggle"><label for="toggle25">Can I see list of parameters?</label>
+        <section><p>List of available configurable parameters<br>
+  <div class="screenshot-gallery" data-pswp-uid="1" data-author=""><a href="/images/faq/TPOChart_Parameters.png" data-size="686x1309" class="screenshot-gallery__img--main"><img src="/images/faq/TPOChart_Parameters.png" alt="" width="500" height="954"><figure>Can I see list of parameters?</figure></a></div></p>
+  </section>
+  
+        <a name="faq26"></a><input id="toggle26" type="radio" name="toggle"><label for="toggle26">Do you have any suggestion or tutorial how to trade with TPOChart?</label>
+        <section><p>Start from here <a href="http://www.trading-naked.com/MarketProfile.htm">Trading Naked</a></p>
+  <p>and</p>
+  <p>Free TPO Class <a href="http://eminitradingschool.com/free-tpo-class/">EminiTradingSchool</a></p>
+  </section>
+  
+      </div>
+  </div>
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+  
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+  
+      <!-- Container that holds slides.
+              PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+      <div class="pswp__container">
+        <!-- don't modify these 3 pswp__item elements, data is added later on -->
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+  
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+  
+        <div class="pswp__top-bar">
+  
+          <!--  Controls are self-explanatory. Order can be changed. -->
+  
+          <div class="pswp__counter"></div>
+  
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+  
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+  
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+  
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+  
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+  
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+  
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+  
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+  
+      </div>
+  
+    </div>
+  </div>
+</main>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='//www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-58077532-1');ga('send','pageview');
+</script>
+
+<!-- build:js scripts/main.js -->
+<script src="../bower_components/photoswipe/dist/photoswipe.js"></script>
+<script src="../bower_components/photoswipe/dist/photoswipe-ui-default.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/photoswipe.js"></script>
+<!-- endbuild -->
+</body>
+</html>
