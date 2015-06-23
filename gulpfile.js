@@ -337,8 +337,8 @@ gulp.task('build', ['handlbars', 'markdown', 'jshint', 'html', /*'images',*/  'i
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('default', ['clean'], function () {
-  gulp.start('build');
+gulp.task('default', function () {
+  runSequence('clean', 'build', 'grunt-deploy', 'deploy-cdn');
 });
 
 gulp.task('deploy', function() {
