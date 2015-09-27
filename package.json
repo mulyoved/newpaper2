@@ -12,7 +12,7 @@
     "glob-to-vinyl": "0.0.1",
     "grunt": "^0.4.5",
     "grunt-ftpush": "^0.3.3",
-    "gulp": "^3.8.10",
+    "gulp": "^3.9.0",
     "gulp-assetpaths": "^0.1.1",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-cache": "^0.2.2",

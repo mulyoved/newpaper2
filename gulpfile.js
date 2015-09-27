@@ -233,7 +233,8 @@ gulp.task('image-resize', function () {
       height : 190,
       crop : true,
       gravity: 'SouthWest',
-      //imageMagick: true,
+      imageMagick: true,
+      appPath: 'D:/Program Files/ImageMagick-6.9.2-Q16/convert',
       upscale : false
     }))
     .pipe(gulp.dest('dist/images/thumbnails/'));
