@@ -334,7 +334,7 @@ gulp.task('watch', ['connect'], function () {
   gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['handlbars', 'markdown', 'jshint', 'html', /*'images',*/  'image-resize', 'copy-images', 'fonts', 'extras', 'sitemap'], function () {
+gulp.task('build', ['handlbars', 'markdown', 'jshint', 'html', /*'images',*/  /*'image-resize', */ 'copy-images', 'fonts', 'extras', 'sitemap'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
